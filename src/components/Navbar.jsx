@@ -134,7 +134,7 @@ function Navbar() {
       
       <StyledNavbar mobileMenuOpen={mobileMenuOpen}>
         <div className="navbar-container">
-          <Link className="navbar-brand" to="/" onClick={closeMobileMenu}>SaccoX</Link>
+          <Link className="navbar-brand" to="/" onClick={closeMobileMenu}>HerbSacco</Link>
           
           <button 
             className="mobile-menu-btn" 
