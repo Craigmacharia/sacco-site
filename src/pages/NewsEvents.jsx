@@ -63,7 +63,7 @@ const EventCard = styled.div`
     font-weight: 700;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    min-height: 72px; /* Ensures title takes same space even if wraps */
+    min-height: 72px;
   }
 
   p {
@@ -71,7 +71,7 @@ const EventCard = styled.div`
     line-height: 1.8;
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
-    flex-grow: 1; /* Makes description take available space */
+    flex-grow: 1;
   }
 
   .media-container {
@@ -80,7 +80,7 @@ const EventCard = styled.div`
     margin: 1.5rem 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     position: relative;
-    aspect-ratio: 16/9; /* Standard aspect ratio for all media */
+    aspect-ratio: 16/9;
     
     img, video {
       width: 100%;
@@ -129,7 +129,7 @@ const EventCard = styled.div`
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: auto; /* Pushes button to bottom */
+    margin-top: auto;
 
     &:hover {
       transform: translateY(-2px);
@@ -147,7 +147,7 @@ const CarouselContainer = styled.div`
   position: relative;
 
   .carousel-item {
-    height: 500px; /* Fixed height for carousel */
+    height: 500px;
     
     img, video {
       width: 100%;
@@ -206,60 +206,6 @@ const EventGrid = styled.div`
   margin-top: 3rem;
 `;
 
-const NewsletterSection = styled.div`
-  background: linear-gradient(135deg, #2BC0E4 0%, #4CA1AF 100%);
-  padding: 3rem;
-  border-radius: 12px;
-  margin: 4rem 0;
-  color: white;
-  text-align: center;
-  
-
-
-  h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
-
-  .newsletter-form {
-    display: flex;
-    max-width: 500px;
-    margin: 0 auto;
-
-    input {
-      flex: 1;
-      padding: 0.8rem 1rem;
-      border: none;
-      border-radius: 50px 0 0 50px;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    button {
-      background-color: #2a4365;
-      color: white;
-      border: none;
-      padding: 0 1.5rem;
-      border-radius: 0 50px 50px 0;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: #1a365d;
-      }
-    }
-  }
-`;
-
-// Standardized image placeholder component
 const ImagePlaceholder = styled.div`
   background-color: #e2e8f0;
   display: flex;
@@ -280,10 +226,10 @@ function NewsEvents() {
   const featuredEvents = [
     {
       title: "AGM 2024 Recap",
-      description: "We held our successful Annual General Meeting with record attendance. Members reviewed our financial performance and approved our strategic plan for 2024-2026.",
+      description: "We held our successful Annual General Meeting.",
       media: {
         type: "image",
-        src: "agm.png",
+        src: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
         alt: "Members attending AGM 2024"
       },
       date: "March 15, 2024",
@@ -292,10 +238,10 @@ function NewsEvents() {
     },
     {
       title: "Financial Literacy Drive",
-      description: "Our financial education program trained members in essential money management skills including budgeting and investment basics.",
+      description: "Our financial education program trained members.",
       media: {
         type: "image",
-        src: "meeting.png",
+        src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
         alt: "Financial literacy training"
       },
       date: "February 2024",
@@ -304,10 +250,10 @@ function NewsEvents() {
     },
     {
       title: "Branch Opening - Karatina",
-      description: "Celebrated the opening of our new Karatina branch, bringing services closer to members in Central Kenya with special launch offers.",
+      description: "Celebrated the opening of our new Karatina branch.",
       media: {
         type: "image",
-        src: "branch.png",
+        src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
         alt: "New branch opening"
       },
       date: "January 20, 2024",
@@ -319,10 +265,10 @@ function NewsEvents() {
   const pastEvents = [
     {
       title: "Sacco Golf Tournament",
-      description: "3rd annual tournament raised funds for community education projects with participants from across the region.",
+      description: "3rd annual tournament raised funds for community.",
       media: {
-        type: "video",
-        src: "golf.mp4",
+        type: "image",
+        src: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
         alt: "Golf tournament"
       },
       date: "November 10, 2023",
@@ -346,7 +292,7 @@ function NewsEvents() {
       description: "Launched our new mobile banking app with enhanced features for easier account management.",
       media: {
         type: "image",
-        src: "fon.png",
+        src: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
         alt: "Mobile app launch"
       },
       date: "September 5, 2023",
@@ -371,18 +317,12 @@ function NewsEvents() {
             {featuredEvents.map((event, index) => (
               <Carousel.Item key={index}>
                 <ImagePlaceholder>
-                  {event.media.type === 'image' ? (
-                    <img 
-                      src={event.media.src} 
-                      alt={event.media.alt}
-                      className="d-block w-100"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <video autoPlay muted loop className="d-block w-100">
-                      <source src={event.media.src} type="video/mp4" />
-                    </video>
-                  )}
+                  <img 
+                    src={event.media.src} 
+                    alt={event.media.alt}
+                    className="d-block w-100"
+                    loading="lazy"
+                  />
                 </ImagePlaceholder>
                 <Carousel.Caption>
                   <h3>{event.title}</h3>
@@ -413,17 +353,11 @@ function NewsEvents() {
               
               <div className="media-container">
                 <ImagePlaceholder>
-                  {event.media.type === 'image' ? (
-                    <img 
-                      src={event.media.src} 
-                      alt={event.media.alt}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <video controls>
-                      <source src={event.media.src} type="video/mp4" />
-                    </video>
-                  )}
+                  <img 
+                    src={event.media.src} 
+                    alt={event.media.alt}
+                    loading="lazy"
+                  />
                 </ImagePlaceholder>
               </div>
               <a href="#register" className="read-more">Learn More</a>
@@ -451,32 +385,17 @@ function NewsEvents() {
               
               <div className="media-container">
                 <ImagePlaceholder>
-                  {event.media.type === 'image' ? (
-                    <img 
-                      src={event.media.src} 
-                      alt={event.media.alt}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <video controls>
-                      <source src={event.media.src} type="video/mp4" />
-                    </video>
-                  )}
+                  <img 
+                    src={event.media.src} 
+                    alt={event.media.alt}
+                    loading="lazy"
+                  />
                 </ImagePlaceholder>
               </div>
               <a href="#details" className="read-more">View Details</a>
             </EventCard>
           ))}
         </EventGrid>
-
-        <NewsletterSection>
-          <h3>Stay Updated</h3>
-          <p>Subscribe to our newsletter to receive the latest news and event invitations directly to your inbox.</p>
-          <div className="newsletter-form">
-            <input type="email" placeholder="Your email address" />
-            <button type="submit">Subscribe</button>
-          </div>
-        </NewsletterSection>
       </NewsContainer>
     </>
   );
