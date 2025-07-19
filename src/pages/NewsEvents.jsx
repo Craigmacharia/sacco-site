@@ -207,7 +207,7 @@ const EventGrid = styled.div`
 `;
 
 const NewsletterSection = styled.div`
-  background: linear-gradient(135deg, #2BC0E4 80%, #4CA1AF 100%);
+  background: linear-gradient(135deg, #2BC0E4 0%, #4CA1AF 100%);
   padding: 3rem;
   border-radius: 12px;
   margin: 4rem 0;
