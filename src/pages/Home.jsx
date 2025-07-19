@@ -249,7 +249,7 @@ function Home() {
             <SectionTitle className="text-center">Why Join Us?</SectionTitle>
             <FeatureList className="card">
               <ImageContainer>
-                <img src="meeting.png" alt="Happy members" />
+                <img src="cash.png" alt="Happy members" />
               </ImageContainer>
               <p>Member-owned and transparent</p>
               <p>Competitive loan interest rates</p>

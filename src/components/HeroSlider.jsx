@@ -105,7 +105,7 @@ class HeroSlider extends React.Component {
           alt: 'Person holding a piggy bank'
         },
         {
-          image: 'meeting.png',
+          image: 'carloan.png',
           title: 'Trusted by Thousands',
           text: 'Serving the community with integrity since 2012',
           alt: 'Community of happy customers'
