@@ -6,116 +6,226 @@ import {
   FaFileExcel,
   FaQuestionCircle,
   FaChevronDown,
-  FaChevronUp
+  FaChevronUp,
+  FaSearch,
+  FaDownload
 } from 'react-icons/fa';
-
 
 // Styled components
 const InfoContainer = styled.div`
   font-family: 'Quicksand', sans-serif;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  background-color: #f9fbf4;
 `;
 
 const SectionTitle = styled.h2`
-  color: #2BC0E4;
+  color: #2a4365;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  text-align: center;
   position: relative;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 
   &:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background-color: #E4ECC6;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #2BC0E4 0%, #E4ECC6 100%);
+    border-radius: 2px;
   }
 `;
 
-const SubSectionTitle = styled.h4`
-  color: #2BC0E4;
-  font-weight: 600;
-  margin: 2rem 0 1rem;
-  display: flex;
-  align-items: center;
-
-  svg {
-    margin-right: 10px;
-  }
+const SectionDescription = styled.p`
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
 `;
 
-const FileCard = styled.div`
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.2rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+const SearchBar = styled.div`
   display: flex;
+  margin: 2rem 0;
+  background: white;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   align-items: center;
-  transition: all 0.2s ease;
 
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  input {
+    flex: 1;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
   }
 
   svg {
     color: #2BC0E4;
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+`;
+
+const SubSectionTitle = styled.h3`
+  color: #2a4365;
+  font-weight: 600;
+  margin: 3rem 0 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+
+  svg {
+    margin-right: 12px;
+    color: #2BC0E4;
+  }
+`;
+
+const FileGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+`;
+
+const FileCard = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border-left: 4px solid #2BC0E4;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   }
 
-  a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    flex-grow: 1;
+  .file-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 
-    &:hover {
+    svg {
       color: #2BC0E4;
+      font-size: 1.8rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .file-name {
+      font-weight: 600;
+      color: #2a4365;
+      font-size: 1.1rem;
     }
   }
 
-  .file-size {
-    color: #777;
-    font-size: 0.85rem;
+  .file-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+
+    .file-format {
+      background: #f0f4f8;
+      color: #2a4365;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    .file-size {
+      color: #718096;
+    }
   }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(90deg, #2BC0E4 0%, #4CA1AF 100%);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+
+    svg {
+      margin-right: 0.5rem;
+      color: white;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  }
+`;
+
+const FaqContainer = styled.div`
+  margin-top: 2rem;
 `;
 
 const FaqItem = styled.div`
   background-color: white;
-  border-radius: 8px;
-  padding: 1.2rem;
+  border-radius: 10px;
+  padding: 1.5rem;
   margin-bottom: 1rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+
+  &:hover {
+    border-left-color: #2BC0E4;
+  }
 `;
 
 const FaqQuestion = styled.div`
-  color: #2BC0E4;
+  color: #2a4365;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1.1rem;
+  cursor: pointer;
 
   svg {
     transition: transform 0.3s ease;
+    color: #2BC0E4;
   }
 `;
 
 const FaqAnswer = styled.div`
-  color: #444;
+  color: #4a5568;
   padding-top: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   display: ${props => props.isOpen ? 'block' : 'none'};
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 `;
 
 function InfoCenter() {
   const [activeFaq, setActiveFaq] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -193,40 +303,75 @@ function InfoCenter() {
     }
   ];
 
+  const filteredDownloads = downloads.filter(file => 
+    file.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    file.format.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const filteredFaqs = faqs.filter(faq => 
+    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
       
       <InfoContainer>
-        <SectionTitle>Info Center</SectionTitle>
-        
+        <SectionTitle>Information Center</SectionTitle>
+        <SectionDescription>
+          Find all the resources you need, from downloadable forms to answers for frequently asked questions.
+        </SectionDescription>
+
+        <SearchBar>
+          <FaSearch />
+          <input 
+            type="text" 
+            placeholder="Search documents or FAQs..." 
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </SearchBar>
+
         <SubSectionTitle>
-          <FaFilePdf /> Downloads
+          <FaFilePdf /> Documents & Downloads
         </SubSectionTitle>
-        {downloads.map((file, index) => (
-          <FileCard key={index}>
-            {file.icon}
-            <a href={file.link} download>{file.name} ({file.format})</a>
-            <span className="file-size">{file.size}</span>
-          </FileCard>
-        ))}
+        
+        <FileGrid>
+          {filteredDownloads.map((file, index) => (
+            <FileCard key={index}>
+              <div className="file-header">
+                {file.icon}
+                <div className="file-name">{file.name}</div>
+              </div>
+              <div className="file-meta">
+                <span className="file-format">{file.format}</span>
+                <span className="file-size">{file.size}</span>
+              </div>
+              <a href={file.link} download className="download-btn">
+                <FaDownload /> Download
+              </a>
+            </FileCard>
+          ))}
+        </FileGrid>
 
         <SubSectionTitle>
           <FaQuestionCircle /> Frequently Asked Questions
         </SubSectionTitle>
-        {faqs.map((faq, index) => (
-          <FaqItem key={index} onClick={() => toggleFaq(index)}>
-            <FaqQuestion>
-              {faq.question}
-              <FaChevronDown style={{ 
-                transform: activeFaq === index ? 'rotate(180deg)' : 'rotate(0deg)' 
-              }} />
-            </FaqQuestion>
-            <FaqAnswer isOpen={activeFaq === index}>
-              {faq.answer}
-            </FaqAnswer>
-          </FaqItem>
-        ))}
+        
+        <FaqContainer>
+          {filteredFaqs.map((faq, index) => (
+            <FaqItem key={index} onClick={() => toggleFaq(index)}>
+              <FaqQuestion>
+                {faq.question}
+                {activeFaq === index ? <FaChevronUp /> : <FaChevronDown />}
+              </FaqQuestion>
+              <FaqAnswer isOpen={activeFaq === index}>
+                {faq.answer}
+              </FaqAnswer>
+            </FaqItem>
+          ))}
+        </FaqContainer>
       </InfoContainer>
     </>
   );

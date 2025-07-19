@@ -23,6 +23,7 @@ const SectionTitle = styled.h2`
     width: 80px;
     height: 3px;
     background-color: #E4ECC6;
+    
   }
 `;
 
@@ -118,6 +119,7 @@ const StatsSection = styled.section`
     width: 100%;
     height: 100%;
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
   }
 
   .stat-item {

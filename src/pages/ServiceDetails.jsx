@@ -189,7 +189,7 @@ function ServiceDetails() {
               How to Apply
             </h3>
             <p>{service.howToApply}</p>
-            <ApplyButton href="/apply" className="btn">Apply Now</ApplyButton>
+            <ApplyButton href="/apply/emergency-loan" className="btn">Apply Now</ApplyButton>
           </ServiceSection>
         </ServiceContent>
       </ServiceContainer>

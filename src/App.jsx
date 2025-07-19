@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Calculator from "./components/calculator";
 
 // Pages
 import Home from "./pages/Home";
@@ -9,6 +10,7 @@ import Products from "./pages/Products";
 import InfoCenter from "./pages/InfoCenter";
 import NewsEvents from "./pages/NewsEvents";
 import ServiceDetails from "./pages/ServiceDetails";
+import EmergencyLoanForm from "./pages/EmergencyLoanForm";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/info-center" element={<InfoCenter />} />
             <Route path="/news-events" element={<NewsEvents />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
+            <Route path="/calculator" element={<Calculator />} />
+            <Route path="/apply/emergency-loan" element={<EmergencyLoanForm />} />
           </Routes>
         </main>
 

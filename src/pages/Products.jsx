@@ -141,9 +141,9 @@ function Products() {
   ];
 
   const forms = [
-    { name: "Loan Application Form", link: "/assets/forms/loan-application.pdf" },
-    { name: "Savings Account Form", link: "/assets/forms/savings-account.pdf" },
-    { name: "Membership Application", link: "/assets/forms/membership.pdf" }
+    { name: "Loan Application Form", link: "test.pdf" },
+    { name: "Savings Account Form", link: "AGM.pdf" },
+    { name: "Membership Application", link: "test.pdf" }
   ];
 
   return (
@@ -194,7 +194,7 @@ function Products() {
           ))}
           <p style={{ marginTop: '1.5rem', color: '#444' }}>
             <FaEnvelope style={{ color: '#2BC0E4', marginRight: '0.5rem' }} />
-            Email completed forms to: <a href="mailto:info@saccox.org">info@saccox.org</a>
+            Email completed forms to: <a href="mailto:cmacharia482@gmail.com">info@herbsacco.org</a>
           </p>
         </DownloadSection>
       </ProductsContainer>

@@ -31,7 +31,7 @@ const SlideContent = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(228, 236, 198, 0.9);
+  background-color: rgba(228, 236, 198, 0.4);
   padding: 1.5rem 2rem;
   border-radius: 8px;
   max-width: 600px;
@@ -39,14 +39,14 @@ const SlideContent = styled.div`
   text-align: center;
   
   h3 {
-    color: #2BC0E4;
+    color: #33;
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 0.8rem;
   }
   
   p {
-    color: #333;
+    color: #2BC0E4;
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 0;
@@ -146,7 +146,7 @@ class HeroSlider extends React.Component {
             <HeroSlide 
               key={index}
               active={index === currentSlide}
-              style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(/${slide.image})` }}
+              style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url(/${slide.image})` }}
 
               aria-hidden={index !== currentSlide}
             >
