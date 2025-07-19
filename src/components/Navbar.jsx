@@ -7,7 +7,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 // Styled components for custom navbar
 const StyledNavbar = styled.nav`
   font-family: 'Quicksand', sans-serif;
-  background-color: #2BC0E4 !important; /* Skyline color */
+  background: linear-gradient(135deg, #2BC0E4 0%, #1a92b1 100%);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1.5rem;
   position: relative;
@@ -30,7 +30,7 @@ const StyledNavbar = styled.nav`
     z-index: 1001;
     
     &:hover {
-      color: #E4ECC6; /* Bora color */
+      color: #E4ECC6;
     }
   }
   
@@ -46,23 +46,30 @@ const StyledNavbar = styled.nav`
       right: ${props => props.mobileMenuOpen ? '0' : '-100%'};
       width: 70%;
       height: 100vh;
-      background-color: #2BC0E4;
+      background: linear-gradient(to bottom, #2BC0E4 0%, #1a92b1 100%);
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       transition: right 0.3s ease-in-out;
       z-index: 1000;
       padding-top: 80px;
+      overflow-y: auto;
     }
   }
   
   .nav-item {
     margin: 0 0.5rem;
+    position: relative;
     
     @media (max-width: 992px) {
-      margin: 0.8rem 0;
+      margin: 0;
       width: 100%;
       text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
   
@@ -74,15 +81,27 @@ const StyledNavbar = styled.nav`
     transition: all 0.3s ease;
     text-decoration: none;
     display: block;
+    position: relative;
     
     &:hover {
-      color: #E4ECC6 !important; /* Bora color */
+      color: #E4ECC6 !important;
       background-color: rgba(255, 255, 255, 0.1);
     }
     
     @media (max-width: 992px) {
-      padding: 1rem;
+      padding: 1.2rem;
       font-size: 1.1rem;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+      }
     }
   }
   
@@ -94,6 +113,11 @@ const StyledNavbar = styled.nav`
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: #E4ECC6;
+    }
     
     @media (max-width: 992px) {
       display: block;
@@ -114,6 +138,20 @@ const StyledNavbar = styled.nav`
       z-index: 999;
     }
   }
+
+  /* Add a subtle pattern overlay to break up the solid color */
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+    background-size: 10px 10px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
 `;
 
 function Navbar() {
@@ -129,7 +167,6 @@ function Navbar() {
 
   return (
     <>
-      {/* Add Google Fonts link */}
       <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
       
       <StyledNavbar mobileMenuOpen={mobileMenuOpen}>
@@ -162,7 +199,6 @@ function Navbar() {
             </li>
           </ul>
           
-          {/* Overlay that appears when mobile menu is open */}
           <div className="overlay" onClick={closeMobileMenu}></div>
         </div>
       </StyledNavbar>

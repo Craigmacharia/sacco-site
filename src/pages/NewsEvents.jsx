@@ -78,7 +78,7 @@ function NewsEvents() {
       description: "We held our successful Annual General Meeting at Nyeri Social Hall with record attendance. Members reviewed our financial performance and approved our strategic plan for 2024-2026.",
       media: {
         type: "image",
-        src: "egg.png",
+        src: "agm.png",
         alt: "Members attending AGM 2024"
       },
       date: "March 15, 2024"
@@ -87,8 +87,8 @@ function NewsEvents() {
       title: "Financial Literacy Drive",
       description: "Our financial education program trained over 500 members in essential money management skills including budgeting and investment basics.",
       media: {
-        type: "video",
-        src: "vid.mp4",
+        type: "image",
+        src: "youth.png",
         alt: "Financial literacy training"
       },
       date: "February 2024"
@@ -98,7 +98,7 @@ function NewsEvents() {
       description: "Celebrated the opening of our new Karatina branch, bringing services closer to members in Central Kenya with special launch offers.",
       media: {
         type: "image",
-        src: "big.png",
+        src: "branch.png",
         alt: "New branch opening"
       },
       date: "January 20, 2024"
@@ -118,7 +118,7 @@ function NewsEvents() {
       description: "50 young members completed our entrepreneurship program, with top ideas receiving startup funding.",
       media: {
         type: "image",
-        src: "beer.png",
+        src: "youth.png",
         alt: "Youth workshop"
       },
       date: "October 2023"

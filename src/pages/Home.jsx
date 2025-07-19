@@ -40,10 +40,24 @@ const ServiceCard = styled.div`
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   }
 
-  .card-img-top {
+  .card-img-container {
     height: 180px;
-    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+  }
+
+  .card-img-top {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .card-img-top {
+    transform: scale(1.05);
   }
 
   .card-body {
@@ -90,9 +104,32 @@ const FeatureList = styled.div`
 `;
 
 const StatsSection = styled.section`
-  background-color: #2BC0E4;
+  background: linear-gradient(135deg, #2BC0E4 0%, #1a92b1 100%);
   padding: 3rem 0;
   color: white;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+  }
+
+  .stat-item {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
 
   h3 {
     font-size: 2.5rem;
@@ -103,6 +140,19 @@ const StatsSection = styled.section`
   p {
     font-size: 1.1rem;
     opacity: 0.9;
+  }
+
+  .stat-icon {
+    height: 60px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .stat-item:hover .stat-icon {
+    opacity: 1;
+    transform: scale(1.1);
   }
 `;
 
@@ -119,6 +169,26 @@ const PrimaryButton = styled.a`
     background-color: #1da8cc !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 1.5rem;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
 `;
 
@@ -141,24 +211,26 @@ function Home() {
                   icon: "bi-piggy-bank", 
                   title: "Savings", 
                   desc: "Flexible options to grow your money safely.",
-                  image: "beer.png"
+                  image: "cash.png"
                 },
                 { 
                   icon: "bi-cash-coin", 
                   title: "Loans", 
                   desc: "Fast and affordable loans with flexible repayment.",
-                  image: "doc.png"
+                  image: "fon.png"
                 },
                 { 
                   icon: "bi-people", 
                   title: "Community", 
                   desc: "Empowering members through education and support.",
-                  image: "egg.png"
+                  image: "edu.png"
                 }
               ].map((item, index) => (
                 <div className="col-md-4 mb-4" key={index}>
                   <ServiceCard className="card">
-                    <img src={item.image} className="card-img-top" alt={item.title} />
+                    <div className="card-img-container">
+                      <img src={item.image} className="card-img-top" alt={item.title} />
+                    </div>
                     <div className="card-body text-center">
                       <i className={`bi ${item.icon} fs-2`}></i>
                       <h5 className="card-title mt-3">{item.title}</h5>
@@ -171,35 +243,20 @@ function Home() {
           </section>
 
           {/* Why Join Us */}
-<section className="mb-5">
-  <SectionTitle className="text-center">Why Join Us?</SectionTitle>
-  <FeatureList className="card">
-    <div style={{
-      width: '100%',
-      height: '200px',
-      overflow: 'hidden',
-      borderRadius: '8px 8px 0 0',
-      marginBottom: '1.5rem'
-    }}>
-      <img 
-        src="egg.png" 
-        alt="Happy members" 
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center'
-        }}
-      />
-    </div>
-    <p>Member-owned and transparent</p>
-    <p>Competitive loan interest rates</p>
-    <p>Secure savings options</p>
-    <p>Mobile & digital services</p>
-    <p>Financial education programs</p>
-    <p>Dedicated member support</p>
-  </FeatureList>
-</section>
+          <section className="mb-5">
+            <SectionTitle className="text-center">Why Join Us?</SectionTitle>
+            <FeatureList className="card">
+              <ImageContainer>
+                <img src="meeting.png" alt="Happy members" />
+              </ImageContainer>
+              <p>Member-owned and transparent</p>
+              <p>Competitive loan interest rates</p>
+              <p>Secure savings options</p>
+              <p>Mobile & digital services</p>
+              <p>Financial education programs</p>
+              <p>Dedicated member support</p>
+            </FeatureList>
+          </section>
 
           {/* Services Cards */}
           <section className="mb-5">
@@ -210,24 +267,26 @@ function Home() {
                   id: "emergency-loan", 
                   title: "Emergency Loan", 
                   desc: "Quick access to funds during tough times.",
-                  image: "depa.png"
+                  image: "uzima.png"
                 },
                 { 
                   id: "school-fees-loan", 
                   title: "School Fees Loan", 
                   desc: "Ensure uninterrupted education for your children.",
-                  image: "big.png"
+                  image: "edu.png"
                 },
                 { 
                   id: "development-loan", 
                   title: "Development Loan", 
                   desc: "For business, construction, or long-term goals.",
-                  image: "doc.png"
+                  image: "build.png"
                 }
               ].map(service => (
                 <div className="col-md-4 mb-4" key={service.id}>
                   <ServiceCard className="card">
-                    <img src={service.image} className="card-img-top" alt={service.title} />
+                    <div className="card-img-container">
+                      <img src={service.image} className="card-img-top" alt={service.title} />
+                    </div>
                     <div className="card-body">
                       <h5 className="card-title">{service.title}</h5>
                       <p className="card-text">{service.desc}</p>
@@ -250,8 +309,8 @@ function Home() {
                 { value: "10", label: "Years Serving", icon: "/years-icon.png" },
                 { value: "6", label: "Branches", icon: "/branches-icon.png" }
               ].map((stat, index) => (
-                <div className="col-md-3" key={index}>
-                  <img src={stat.icon} alt="" style={{height: "60px", marginBottom: "1rem"}} />
+                <div className="col-md-3 stat-item" key={index}>
+                  <img src={stat.icon} alt="" className="stat-icon" />
                   <h3>{stat.value}</h3>
                   <p>{stat.label}</p>
                 </div>

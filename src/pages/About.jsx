@@ -36,7 +36,7 @@ const SectionTitle = styled.h2`
 `;
 
 const HeroImage = styled.div`
-  background-image: url('beer.png');
+  background-image: url('branch.png');
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -267,7 +267,7 @@ function About() {
             <ContentText>
               <strong>Our Core Values:</strong> Integrity, Transparency, Member Focus, Innovation, and Community Development.
             </ContentText>
-            <img src="sponsor.png" alt="Our Team" className="img-fluid rounded mt-3" />
+            <img src="agm.png" alt="Our Team" className="img-fluid rounded mt-3" />
           </ExpandableContent>
         </ExpandableSection>
 
