@@ -195,7 +195,7 @@ const EmergencyLoanForm = () => {
     setError(null);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/tazilhgathoni@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/Tazilhgathoni@gmail.com", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
