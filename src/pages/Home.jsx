@@ -158,22 +158,6 @@ const StatsSection = styled.section`
   }
 `;
 
-const PrimaryButton = styled.a`
-  background-color: #2BC0E4 !important;
-  border: none;
-  color: white !important;
-  font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: #1da8cc !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-`;
-
 const ImageContainer = styled.div`
   width: 100%;
   height: 200px;
@@ -193,6 +177,65 @@ const ImageContainer = styled.div`
     transform: scale(1.05);
   }
 `;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const PrimaryButton = styled.a`
+  display: inline-block;
+  background: linear-gradient(90deg, #2BC0E4 0%, #4CA1AF 100%);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(90deg, #4CA1AF 0%, #2BC0E4 100%);
+    color: white;
+  }
+`;
+
+const SecondaryButton = styled(PrimaryButton)`
+  background: white;
+  color: #2a4365;
+  border: 2px solid #2BC0E4;
+  
+  &:hover {
+    background: #f0f4f8;
+    color: #2a4365;
+  }
+`;
+
+const TertiaryButton = styled(PrimaryButton)`
+  background: white;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+  
+  &:hover {
+    background: #f0f4f8;
+    color: #2a4365;
+    border-color: #2BC0E4;
+  }
+`;
+
+
 
 function Home() {
   return (
@@ -245,20 +288,30 @@ function Home() {
           </section>
 
           {/* Why Join Us */}
-          <section className="mb-5">
-            <SectionTitle className="text-center">Why Join Us?</SectionTitle>
-            <FeatureList className="card">
-              <ImageContainer>
-                <img src="cash.png" alt="Happy members" />
-              </ImageContainer>
-              <p>Member-owned and transparent</p>
-              <p>Competitive loan interest rates</p>
-              <p>Secure savings options</p>
-              <p>Mobile & digital services</p>
-              <p>Financial education programs</p>
-              <p>Dedicated member support</p>
-            </FeatureList>
-          </section>
+<section className="mb-5">
+  <SectionTitle className="text-center">Why Join Us?</SectionTitle>
+  <FeatureList className="card p-4">
+    <ImageContainer className="text-center mb-4">
+      <img src="cash.png" alt="Happy members" className="img-fluid" style={{ maxHeight: "250px" }} />
+    </ImageContainer>
+
+    <p>Member-owned and transparent</p>
+    <p>Competitive loan interest rates</p>
+    <p>Secure savings options</p>
+    <p>Mobile & digital services</p>
+    <p>Financial education programs</p>
+    <p>Dedicated member support</p>
+
+    {/* Buttons to extra pages */}
+    <ButtonGroup>
+      <PrimaryButton href="/join">Become a Member</PrimaryButton>
+      <SecondaryButton href="/dividends">View Dividends</SecondaryButton>
+      <TertiaryButton href="/contact">Talk to Us</TertiaryButton>
+    </ButtonGroup>
+
+  </FeatureList>
+</section>
+
 
           {/* Services Cards */}
           <section className="mb-5">

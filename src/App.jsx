@@ -11,6 +11,9 @@ import InfoCenter from "./pages/InfoCenter";
 import NewsEvents from "./pages/NewsEvents";
 import ServiceDetails from "./pages/ServiceDetails";
 import EmergencyLoanForm from "./pages/EmergencyLoanForm";
+import Dividends from "./pages/Dividends";
+import Join from "./pages/Join";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
             <Route path="/news-events" element={<NewsEvents />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
             <Route path="/calculator" element={<Calculator />} />
+            <Route path="/dividends" element={<Dividends />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/apply/emergency-loan" element={<EmergencyLoanForm />} />
           </Routes>
         </main>
